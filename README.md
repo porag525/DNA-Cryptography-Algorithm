@@ -36,33 +36,31 @@ Dinajpur-5200</b></h3>
 
   ---
 
-## Table of Contents  
+## Table of Contents
 
-1. [Abstract](#abstract)  
-2. [Introduction](#1-introduction)  
-3. [Key Concepts](#2-key-concepts)  
-   - [DNA Base Mapping](#2.1-dna-base-mapping)  
-   - [Mutation Rules](#2.2-mutation-rules)  
-4. [Encryption Algorithm (DNACrypto-Enc)](#3-encryption-algorithm-dnacrypto-enc)  
-   - [Input](#3.1-input)  
-   - [Output](#3.2-output)  
-   - [Steps](#3.3-steps)  
-   - [Encryption Formula](#34-encryption-formula)  
-5. [Decryption Algorithm (DNACrypto-Dec)](#4-decryption-algorithm-dnacrypto-dec)  
-   - [Input](#4.1-input)  
-   - [Output](#4.2-output)  
-   - [Steps](#4.3-steps)  
-   - [Decryption Formula](#4.4-decryption-formula)  
-6. [Dry Run Example](#5-dry-run-example)  
-   - [Encryption Dry Run](#5.1-encryption-dry-run)  
-   - [Decryption Dry Run](#5.2-decryption-dry-run)  
-7. [Advantages](#6-advantages)  
-8. [Limitations](#7-limitations)  
-9. [Applications](#8-applications)  
-10. [Flowchart Overview](#9-flowchart-overview)  
-11. [References](#references)  
+1. [Introduction](#1-introduction)
+2. [Key Concepts](#2-key-concepts)
+   - [DNA Base Mapping](#dna-base-mapping)
+   - [Mutation Rules](#mutation-rules)
+3. [Encryption Algorithm (DNACrypto-Enc)](#3-encryption-algorithm-dnacrypto-enc)
+   - [Input](#input)
+   - [Output](#output)
+   - [Steps](#steps)
+   - [Encryption Formula](#encryption-formula)
+4. [Decryption Algorithm (DNACrypto-Dec)](#4-decryption-algorithm-dnacrypto-dec)
+   - [Input](#input-1)
+   - [Output](#output-1)
+   - [Steps](#steps-1)
+   - [Decryption Formula](#decryption-formula)
+5. [Dry Run Example](#5-dry-run-example)
+   - [Encryption Dry Run](#step-1-ascii-to-binary)
+   - [Decryption Dry Run](#6-decryption-dry-run-for-atta)
+6. [Advantages](#7-advantages)
+7. [Limitations](#8-limitations)
+8. [Applications](#9-applications)
+9. [Flowchart Overview](#10-flowchart-overview)
 
-
+---
 
 # DNA Cryptography Algorithm (DNACrypto)
 
@@ -73,7 +71,7 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
 
 ## 2. Key Concepts
 
-## 2.1 DNA Base Mapping:
+### DNA Base Mapping:
 | Binary | DNA Base |
 |--------|----------|
 | 00     | A        |
@@ -81,21 +79,22 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
 | 10     | C        |
 | 11     | G        |
 
-## 2.2 Mutation Rules:
+### Mutation Rules:
 - **Complement:** A ⇆ T, C ⇆ G
 - **Reverse:** Reverse the sequence (applied only for odd keys)
 
+---
 
 ## 3. Encryption Algorithm (DNACrypto-Enc)
 
-## 3.1 Input:
+### Input:
 - Plaintext 'P'
 - Key 'K'
 
-## 3.2 Output:
+### Output:
 - Ciphertext 'C'
 
-## 3.3 Steps:
+### Steps:
 1. Convert each character in `P` to its 8-bit binary value.
 2. Divide the binary into 2-bit chunks and map to DNA bases.
 3. Apply mutations:
@@ -103,7 +102,7 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
    - If 'K' is **odd**: Apply complement and reverse.
 4. Concatenate the mutated sequences to produce `C`.
 
-## 3.4 Encryption Formula:
+### Encryption Formula:
 ```
 b_i = B(p_i)
 d_i = D(b_i)
@@ -116,14 +115,14 @@ C = {m_1, m_2, ..., m_n}
 
 ## 4. Decryption Algorithm (DNACrypto-Dec)
 
-## 4.1 Input:
+### Input:
 - Ciphertext `C`
 - Key `K`
 
-## 4.2 Output:
+### Output:
 - Plaintext `P`
 
-## 4.3 Steps:
+### Steps:
 1. Split the ciphertext into individual DNA sequences.
 2. Apply reverse mutations:
    - If `K` is **even**: Apply complement only.
@@ -131,7 +130,7 @@ C = {m_1, m_2, ..., m_n}
 3. Map DNA bases back to binary.
 4. Convert binary to ASCII characters.
 
-## 4.4 Decryption Formula:
+### Decryption Formula:
 ```
 d_i = Comp(m_i)                 if K % 2 == 0
 d_i = Comp(Rev(m_i))            if K % 2 == 1
@@ -143,11 +142,13 @@ P = {p_1, p_2, ..., p_n}
 ---
 
 ## 5. Dry Run Example
-## 5.1 Encryptiondryrun
-### Plaintext: `"Algorithm"`
-### Key: 5 (odd)
 
-### Step 1: ASCII to Binary
+### Encryption Dry Run
+
+#### Plaintext: `"Algorithm"`
+#### Key: 5 (odd)
+
+##### Step 1: ASCII to Binary
 | Character | ASCII | Binary      |
 |-----------|-------|------------|
 | A         | 65    | 01000001   |
@@ -160,7 +161,7 @@ P = {p_1, p_2, ..., p_n}
 | h         | 104   | 01101000   |
 | m         | 109   | 01101101   |
 
-### Step 2: Binary to DNA Mapping
+##### Step 2: Binary to DNA Mapping
 | Binary       | DNA     |
 |-------------|---------|
 | 01000001    | T A A T |
@@ -173,7 +174,7 @@ P = {p_1, p_2, ..., p_n}
 | 01101000    | T C C A |
 | 01101101    | T C G T |
 
-### Step 3: Apply Mutation (Key = 5, odd)
+##### Step 3: Apply Mutation (Key = 5, odd)
 | Original | Complemented | Reversed |
 |----------|--------------|----------|
 | TAAT     | ATTA         | ATTA     |
@@ -186,41 +187,39 @@ P = {p_1, p_2, ..., p_n}
 | TCCA     | AGGT         | TGGA     |
 | TCGT     | AGCA         | ACGA     |
 
-### Step 4: Final Ciphertext:
+##### Step 4: Final Ciphertext:
 ```
 ATTA TCGA CAGA CCGA GTCA AGGA TACA TGGA ACGA
 ```
 
----
-
-## 6. Decryption Dry Run (for 'ATTA')
+### Decryption Dry Run (for 'ATTA')
 1. Reverse: ATTA (odd key)
 2. Complement: TAAT
 3. DNA to Binary: 01 00 00 01 → 01000001 → 'A'
 
 ---
 
-## 7. Advantages
+## 6. Advantages
 - Bio-inspired, visually intuitive.
 - Multi-layered security.
 - Easy to implement in code.
 
 ---
 
-## 8. Limitations
+## 7. Limitations
 - Suitable for short messages.
 - Requires secure key sharing.
 
 ---
 
-## 9. Applications
+## 8. Applications
 - Secure messaging.
 - Steganography.
 - Educational cryptography models.
 
 ---
 
-## 10. Flowchart Overview
+## 9. Flowchart Overview
 ```
 Plaintext → Binary → DNA → Mutation → Ciphertext
 Ciphertext → Reverse Mutation → Binary → Plaintext
