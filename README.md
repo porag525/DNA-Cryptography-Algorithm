@@ -145,6 +145,119 @@ P = {p_1, p_2, ..., p_n}
 
 ### Encryption Dry Run
 
+#include <iostream>
+#include <bitset>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+
+using namespace std;
+
+// Mapping from 2-bit binary to DNA base
+unordered_map<string, char> binToDNA = {
+    {"00", 'A'},
+    {"01", 'T'},
+    {"10", 'C'},
+    {"11", 'G'}
+};
+
+// Mapping from DNA base to 2-bit binary
+unordered_map<char, string> DNAToBin = {
+    {'A', "00"},
+    {'T', "01"},
+    {'C', "10"},
+    {'G', "11"}
+};
+
+// Complement mapping
+unordered_map<char, char> complement = {
+    {'A', 'T'},
+    {'T', 'A'},
+    {'C', 'G'},
+    {'G', 'C'}
+};
+
+// Function to convert character to 8-bit binary string
+string charToBinary(char c) {
+    return bitset<8>(c).to_string();
+}
+
+// Function to convert 8-bit binary string to DNA string
+string binaryToDNA(const string& binary) {
+    string dna = "";
+    for (int i = 0; i < 8; i += 2) {
+        dna += binToDNA[binary.substr(i, 2)];
+    }
+    return dna;
+}
+
+// Function to apply complement mutation
+string applyComplement(const string& dna) {
+    string result = "";
+    for (char base : dna) {
+        result += complement[base];
+    }
+    return result;
+}
+
+// Function to encrypt a plaintext message using DNA Crypto
+vector<string> encryptDNA(const string& plaintext, int key) {
+    vector<string> encrypted;
+    for (char c : plaintext) {
+        string bin = charToBinary(c);
+        string dna = binaryToDNA(bin);
+        string mutated = applyComplement(dna);
+        if (key % 2 == 1) reverse(mutated.begin(), mutated.end());
+        encrypted.push_back(mutated);
+    }
+    return encrypted;
+}
+
+// Function to convert DNA string to 8-bit binary string
+string DNAToBinary(const string& dna) {
+    string binary = "";
+    for (char base : dna) {
+        binary += DNAToBin[base];
+    }
+    return binary;
+}
+
+// Function to decrypt the DNA-encrypted message
+string decryptDNA(const vector<string>& encrypted, int key) {
+    string plaintext = "";
+    for (string block : encrypted) {
+        if (key % 2 == 1) reverse(block.begin(), block.end());
+        string complemented = applyComplement(block);
+        string binary = DNAToBinary(complemented);
+        char character = static_cast<char>(bitset<8>(binary).to_ulong());
+        plaintext += character;
+    }
+    return plaintext;
+}
+
+// Main function
+int main() {
+    string plaintext = "Algorithm";
+    int key = 5;
+
+    cout << "Original Plaintext: " << plaintext << endl;
+
+    // Encryption
+    vector<string> encrypted = encryptDNA(plaintext, key);
+    cout << "Encrypted DNA: ";
+    for (string s : encrypted) {
+        cout << s << " ";
+    }
+    cout << endl;
+
+    // Decryption
+    string decrypted = decryptDNA(encrypted, key);
+    cout << "Decrypted Plaintext: " << decrypted << endl;
+
+    return 0;
+}
+
+
 #### Plaintext: `"Algorithm"`
 #### Key: 5 (odd)
 
