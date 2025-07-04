@@ -192,34 +192,34 @@ P = {p_1, p_2, ..., p_n}
 ATTA TCGA CAGA CCGA GTCA AGGA TACA TGGA ACGA
 ```
 
-### Decryption Dry Run (for 'ATTA')
+## 6 Decryption Dry Run (for 'ATTA')
 1. Reverse: ATTA (odd key)
 2. Complement: TAAT
 3. DNA to Binary: 01 00 00 01 → 01000001 → 'A'
 
 ---
 
-## 6. Advantages
+## 7. Advantages
 - Bio-inspired, visually intuitive.
 - Multi-layered security.
 - Easy to implement in code.
 
 ---
 
-## 7. Limitations
+## 8. Limitations
 - Suitable for short messages.
 - Requires secure key sharing.
 
 ---
 
-## 8. Applications
+## 9. Applications
 - Secure messaging.
 - Steganography.
 - Educational cryptography models.
 
 ---
 
-## 9. Flowchart Overview
+## 10. Flowchart Overview
 ```
 Plaintext → Binary → DNA → Mutation → Ciphertext
 Ciphertext → Reverse Mutation → Binary → Plaintext
