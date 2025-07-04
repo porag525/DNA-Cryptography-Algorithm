@@ -41,21 +41,21 @@ Dinajpur-5200</b></h3>
 1. [Abstract](#abstract)  
 2. [Introduction](#1-introduction)  
 3. [Key Concepts](#2-key-concepts)  
-   - [DNA Base Mapping](#21-dna-base-mapping)  
-   - [Mutation Rules](#22-mutation-rules)  
+   - [DNA Base Mapping](#2.1-dna-base-mapping)  
+   - [Mutation Rules](#2.2-mutation-rules)  
 4. [Encryption Algorithm (DNACrypto-Enc)](#3-encryption-algorithm-dnacrypto-enc)  
-   - [Input](#31-input)  
-   - [Output](#32-output)  
-   - [Steps](#33-steps)  
+   - [Input](#3.1-input)  
+   - [Output](#3.2-output)  
+   - [Steps](#3.3-steps)  
    - [Encryption Formula](#34-encryption-formula)  
 5. [Decryption Algorithm (DNACrypto-Dec)](#4-decryption-algorithm-dnacrypto-dec)  
-   - [Input](#41-input)  
-   - [Output](#42-output)  
-   - [Steps](#43-steps)  
-   - [Decryption Formula](#44-decryption-formula)  
+   - [Input](#4.1-input)  
+   - [Output](#4.2-output)  
+   - [Steps](#4.3-steps)  
+   - [Decryption Formula](#4.4-decryption-formula)  
 6. [Dry Run Example](#5-dry-run-example)  
-   - [Encryption Dry Run](#51-encryption-dry-run)  
-   - [Decryption Dry Run](#52-decryption-dry-run)  
+   - [Encryption Dry Run](#5.1-encryption-dry-run)  
+   - [Decryption Dry Run](#5.2-decryption-dry-run)  
 7. [Advantages](#6-advantages)  
 8. [Limitations](#7-limitations)  
 9. [Applications](#8-applications)  
@@ -73,7 +73,7 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
 
 ## 2. Key Concepts
 
-## 21 DNA Base Mapping:
+## 2.1 DNA Base Mapping:
 | Binary | DNA Base |
 |--------|----------|
 | 00     | A        |
@@ -81,21 +81,21 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
 | 10     | C        |
 | 11     | G        |
 
-## 22 Mutation Rules:
+## 2.2 Mutation Rules:
 - **Complement:** A ⇆ T, C ⇆ G
 - **Reverse:** Reverse the sequence (applied only for odd keys)
 
 
 ## 3. Encryption Algorithm (DNACrypto-Enc)
 
-## 31 Input:
+## 3.1 Input:
 - Plaintext 'P'
 - Key 'K'
 
-## 32 Output:
+## 3.2 Output:
 - Ciphertext 'C'
 
-## 33 Steps:
+## 3.3 Steps:
 1. Convert each character in `P` to its 8-bit binary value.
 2. Divide the binary into 2-bit chunks and map to DNA bases.
 3. Apply mutations:
@@ -103,7 +103,7 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
    - If 'K' is **odd**: Apply complement and reverse.
 4. Concatenate the mutated sequences to produce `C`.
 
-## 34 Encryption Formula:
+## 3.4 Encryption Formula:
 ```
 b_i = B(p_i)
 d_i = D(b_i)
@@ -116,14 +116,14 @@ C = {m_1, m_2, ..., m_n}
 
 ## 4. Decryption Algorithm (DNACrypto-Dec)
 
-## 41 Input:
+## 4.1 Input:
 - Ciphertext `C`
 - Key `K`
 
-## 42 Output:
+## 4.2 Output:
 - Plaintext `P`
 
-## 43 Steps:
+## 4.3 Steps:
 1. Split the ciphertext into individual DNA sequences.
 2. Apply reverse mutations:
    - If `K` is **even**: Apply complement only.
@@ -131,7 +131,7 @@ C = {m_1, m_2, ..., m_n}
 3. Map DNA bases back to binary.
 4. Convert binary to ASCII characters.
 
-## 44 Decryption Formula:
+## 4.4 Decryption Formula:
 ```
 d_i = Comp(m_i)                 if K % 2 == 0
 d_i = Comp(Rev(m_i))            if K % 2 == 1
@@ -143,7 +143,7 @@ P = {p_1, p_2, ..., p_n}
 ---
 
 ## 5. Dry Run Example
-## 51. Encryptiondryrun
+## 5.1 Encryptiondryrun
 ### Plaintext: `"Algorithm"`
 ### Key: 5 (odd)
 
