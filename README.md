@@ -36,6 +36,33 @@ Dinajpur-5200</b></h3>
 
   ---
 
+## Table of Contents  
+
+1. [Abstract](#abstract)  
+2. [Introduction](#1-introduction)  
+3. [Key Concepts](#2-key-concepts)  
+   - [DNA Base Mapping](#21-dna-base-mapping)  
+   - [Mutation Rules](#22-mutation-rules)  
+4. [Encryption Algorithm (DNACrypto-Enc)](#3-encryption-algorithm-dnacrypto-enc)  
+   - [Input](#31-input)  
+   - [Output](#32-output)  
+   - [Steps](#33-steps)  
+   - [Encryption Formula](#34-encryption-formula)  
+5. [Decryption Algorithm (DNACrypto-Dec)](#4-decryption-algorithm-dnacrypto-dec)  
+   - [Input](#41-input)  
+   - [Output](#42-output)  
+   - [Steps](#43-steps)  
+   - [Decryption Formula](#44-decryption-formula)  
+6. [Dry Run Example](#5-dry-run-example)  
+   - [Encryption Dry Run](#51-encryption-dry-run)  
+   - [Decryption Dry Run](#52-decryption-dry-run)  
+7. [Advantages](#6-advantages)  
+8. [Limitations](#7-limitations)  
+9. [Applications](#8-applications)  
+10. [Flowchart Overview](#9-flowchart-overview)  
+11. [References](#references)  
+
+
 
 # DNA Cryptography Algorithm (DNACrypto)
 
@@ -58,23 +85,22 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
 - **Complement:** A ⇆ T, C ⇆ G
 - **Reverse:** Reverse the sequence (applied only for odd keys)
 
----
 
 ## 3. Encryption Algorithm (DNACrypto-Enc)
 
 ### Input:
-- Plaintext `P`
-- Key `K`
+- Plaintext 'P'
+- Key 'K'
 
 ### Output:
-- Ciphertext `C`
+- Ciphertext 'C'
 
 ### Steps:
 1. Convert each character in `P` to its 8-bit binary value.
 2. Divide the binary into 2-bit chunks and map to DNA bases.
 3. Apply mutations:
-   - If `K` is **even**: Apply complement only.
-   - If `K` is **odd**: Apply complement and reverse.
+   - If 'K' is **even**: Apply complement only.
+   - If 'K' is **odd**: Apply complement and reverse.
 4. Concatenate the mutated sequences to produce `C`.
 
 ### Encryption Formula:
