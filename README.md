@@ -73,7 +73,7 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
 
 ## 2. Key Concepts
 
-### DNA Base Mapping:
+## 21 DNA Base Mapping:
 | Binary | DNA Base |
 |--------|----------|
 | 00     | A        |
@@ -81,21 +81,21 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
 | 10     | C        |
 | 11     | G        |
 
-### Mutation Rules:
+## 22 Mutation Rules:
 - **Complement:** A ⇆ T, C ⇆ G
 - **Reverse:** Reverse the sequence (applied only for odd keys)
 
 
 ## 3. Encryption Algorithm (DNACrypto-Enc)
 
-### Input:
+## 31 Input:
 - Plaintext 'P'
 - Key 'K'
 
-### Output:
+## 32 Output:
 - Ciphertext 'C'
 
-### Steps:
+## 33 Steps:
 1. Convert each character in `P` to its 8-bit binary value.
 2. Divide the binary into 2-bit chunks and map to DNA bases.
 3. Apply mutations:
@@ -103,7 +103,7 @@ DNA Cryptography is an innovative security method inspired by biological DNA, wh
    - If 'K' is **odd**: Apply complement and reverse.
 4. Concatenate the mutated sequences to produce `C`.
 
-### Encryption Formula:
+## 34 Encryption Formula:
 ```
 b_i = B(p_i)
 d_i = D(b_i)
@@ -116,14 +116,14 @@ C = {m_1, m_2, ..., m_n}
 
 ## 4. Decryption Algorithm (DNACrypto-Dec)
 
-### Input:
+## 41 Input:
 - Ciphertext `C`
 - Key `K`
 
-### Output:
+## 42 Output:
 - Plaintext `P`
 
-### Steps:
+## 43 Steps:
 1. Split the ciphertext into individual DNA sequences.
 2. Apply reverse mutations:
    - If `K` is **even**: Apply complement only.
@@ -131,7 +131,7 @@ C = {m_1, m_2, ..., m_n}
 3. Map DNA bases back to binary.
 4. Convert binary to ASCII characters.
 
-### Decryption Formula:
+## 44 Decryption Formula:
 ```
 d_i = Comp(m_i)                 if K % 2 == 0
 d_i = Comp(Rev(m_i))            if K % 2 == 1
@@ -143,7 +143,7 @@ P = {p_1, p_2, ..., p_n}
 ---
 
 ## 5. Dry Run Example
-
+## 51. Encryptiondryrun
 ### Plaintext: `"Algorithm"`
 ### Key: 5 (odd)
 
