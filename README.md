@@ -1,3 +1,42 @@
+<p align="center">
+  <img src="hstu_logo_.png" alt="hstu_logo_.png" width="250" height="300">
+</p>
+<h1 align="center">
+  <b> DNA Cryptography Algorithm (DNACrypto)</b>
+</h1>
+<h3 align="center">
+  <br>
+  <b>Level-3 Semester-II Assignment</b>  
+</h3>
+<h3 align="center">
+  Course Code: CSE 361 
+</h3>
+
+<h3 align="center">
+  Course Title: Mathematical Analysis for Computer Science
+</h3>
+<br>
+<h3 align="center">
+  Submitted by 
+</h3>
+<h3 align="center">
+<b>Moniruzzaman Porag (ID: 2102044) </b> </h3>
+<br>
+
+<h3 align="center">
+  Submitted To 
+</h3>
+
+<h3 align="center"><b>Pankaj Bhowmik  </b></h3>
+<h3 align="center"><b>Lecturer, Department of CSE</b></h3>
+<br>
+<h3 align="center"> <b>Department of Computer Science and Engineering </b></h3>
+<h3 align="center"><b>Hajee Mohammad Danesh Science and Technology University  
+Dinajpur-5200</b></h3>
+
+  ---
+
+
 # DNA Cryptography Algorithm (DNACrypto)
 
 ## 1. Introduction
