@@ -140,12 +140,8 @@ P = {p_1, p_2, ..., p_n}
 ```
 
 ---
-
-## 5. Dry Run Example
-
-### Encryption Dry Run
-
-#include <iostream>
+## Source code:
+<p>#include <iostream>
 #include <bitset>
 #include <vector>
 #include <unordered_map>
@@ -256,6 +252,12 @@ int main() {
 
     return 0;
 }
+</p>
+
+## 5. Dry Run Example
+
+### Encryption Dry Run
+
 
 
 #### Plaintext: `"Algorithm"`
